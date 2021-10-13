@@ -15,8 +15,7 @@ with open('json-data.json') as json_file:
     data = json.load(json_file)
 
 for message in data:
-    print("New Json Snippet")
     channel.basic_publish(exchange='event', routing_key='messages.billing.create_account', body=json.dumps(message))
-    print(" [x] Sent 'Json'")
+    print("Json sent ")
 
 connection.close()
